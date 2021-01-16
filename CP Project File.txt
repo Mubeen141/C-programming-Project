@@ -1,0 +1,343 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+
+void login();
+void menu();
+void bookadd();
+void bookis();
+void bookv(string, string, string, string, string, string, string, string);
+void bookiss(string, string, string, string, string, string, string);
+void bookisf(string, string, string, string, string, string, string);
+
+void main()
+{
+	cout << "****************************************************** " << endl;
+	cout << "               Welcome to Orbit Library!                " << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << "               Press Enter for Login Screen             " << endl;
+	cout << "****************************************************** " << endl;
+
+
+	_getch();
+	system("cls");
+	login();
+	
+
+}
+
+void login()
+{
+	string pass;
+	cout << "****************************************************** " << endl;
+	cout << "     Enter Admin Password here and press enter  "; cin >> pass;
+	cout << "****************************************************** " << endl;
+	if (pass == "orbit")
+	{
+		system("cls");
+		menu();
+	}
+	else if (pass != "orbit")
+	{
+		cout << " Invalid Login";
+	}
+	system("cls");
+}
+
+void menu()
+{
+	char c;
+	cout << "****************************************************** " << endl;
+	cout << " Please Select an option and press enter " << endl;
+	cout << " (1) Add a Book record " << endl;
+	cout << " (2) Issue a Book " << endl;
+	cout << " (3) View Book records " << endl;
+	cout << " (4) Student issuing records " << endl;
+	cout << " (5) Faculty Book issuing records " << endl;
+	cout << "****************************************************** " << endl;
+	cout << " ";  cin >> c;
+
+	switch (c)
+	{
+
+	case '1':
+		system("cls");
+		bookadd();
+		break;
+	case '2':
+		system("cls");
+		bookis();
+		break;
+	case '3':
+		system("cls");
+		void bookv(string booksr, string bkname, string bookid, string bkauthor, string bkpublish, string bksupply, string bkdate, string bkprice);
+		break;
+	case '4':
+		system("cls");
+		void bookiss(string issr, string isbname, string isid, string isauthor, string stname, string stid, string isdate);
+		break;
+	case '5':
+		void bookisf(string issr, string isbname, string isid, string isauthor, string facname, string facid, string isdate);
+		system("cls");
+		break;	
+	}
+	system("cls");
+}
+
+
+void bookadd()
+{
+	char ch, m;
+	string booksr, bkname, bookid, bkauthor, bkpublish, bksupply, bkdate, bkprice;
+	cout << "****************************************************** " << endl;
+	cout << " Enter the following ";
+	cout << endl;
+	cout << endl;
+	cout << "                      "; getline(cin, booksr);
+	cout << endl;
+	cout << " Enter Name of Book: "; getline(cin, bkname);
+	cout << endl;
+	cout << " Enter ID of Book: "; getline(cin, bookid);
+	cout << endl;
+	cout << " Enter Author of Book: "; getline(cin, bkauthor);
+	cout << endl;
+	cout << " Enter Name of Publisher: "; getline(cin, bkpublish);
+	cout << endl;
+	cout << " Enter Supplier Name: "; getline(cin, bksupply);
+	cout << endl;
+	cout << " Enter Date as D/M/Y: "; getline(cin, bkdate);
+	cout << endl;
+	cout << " Enter Retail Price of Book: "; getline(cin, bkprice);
+	cout << endl;
+	cout << " Record Stored! " << endl;
+	cout << endl;
+
+	bookv(booksr, bkname, bookid, bkauthor, bkpublish, bksupply, bkdate, bkprice);
+
+	cout << endl;
+	cout << "****************************************************** " << endl;
+	cout << "Want to Enter another Record ? (Y/N) ";
+	cin >> ch;
+	if (ch == 'y')
+	{
+		system("cls");
+		bookadd();
+	}
+	else if (ch == 'n')
+	{
+		cout << " Press m to go back to main menu " << endl;
+		cin >> m;
+		if (m == 'm')
+		{
+			system("cls");
+			menu();
+		}
+	}
+	system("cls");
+}
+void bookv(string booksr, string bkname, string bookid, string bkauthor, string bkpublish, string bksupply, string bkdate, string bkprice)
+{
+	char m;
+	cout << "****************************************************** " << endl;
+	cout << "               " << booksr;
+	cout << endl;
+	cout << " Name of Book: " << bkname;
+	cout << endl;
+	cout << " Book ID: " << bookid;
+	cout << endl;
+	cout << " Author of Book: " << bkauthor;
+	cout << endl;
+	cout << " Name of Publisher: " << bkpublish;
+	cout << endl;
+	cout << " Supplier Name: " << bksupply;
+	cout << endl;
+	cout << " Date as D/M/Y: " << bkdate;
+	cout << endl;
+	cout << " Retail Price of Book: " << bkprice;
+	cout << endl;
+	cout << "****************************************************** " << endl;
+	cout << endl;
+	cout << " Press m and enter to go back to main menu " << endl;
+	cin >> m;
+	if (m == 'm')
+	{
+		system("cls");
+		menu();
+	}
+
+}
+
+void bookiss(string issr, string isbname, string isid, string isauthor, string stname, string stid, string isdate)
+{
+	char m;
+	cout << "****************************************************** " << endl;
+	cout << "              " << issr;
+	cout << endl;
+	cout << " Name of Book " << isbname;
+	cout << endl;
+	cout << " Book ID: " << isid;
+	cout << endl;
+	cout << " Author of Book " << isauthor;
+	cout << endl;
+	cout << " Name of Student " << stname;
+	cout << endl;
+	cout << " Student ID " << stid;
+	cout << endl;
+	cout << " Date as D/M/Y " << isdate;
+	cout << endl;
+	cout << "****************************************************** " << endl;
+	cout << endl;
+	cout << " Press m and enter to go back to main menu " << endl;
+	cin >> m;
+	if (m == 'm')
+	{
+		system("cls");
+		menu();
+	}
+}
+
+void bookisf(string issr, string isbname, string isid, string isauthor, string facname, string facid, string isdate)
+{
+	char m;
+	cout << "****************************************************** " << endl;
+	cout << "              " << issr;
+	cout << endl;
+	cout << " Name of Book " << isbname;
+	cout << endl;
+	cout << " Book ID: " << isid;
+	cout << endl;
+	cout << " Author of Book " << isauthor;
+	cout << endl;
+	cout << " Name of Faculty " << facname;
+	cout << endl;
+	cout << " Faculty ID " << facid;
+	cout << endl;
+	cout << " Date as D/M/Y " << isdate;
+	cout << endl;
+	cout << "****************************************************** " << endl;
+	cout << endl;
+	cout << " Press m and enter to go back to main menu " << endl;
+	cin >> m;
+	if (m == 'm')
+	{
+		system("cls");
+		menu();
+	}
+}
+
+void bookis()
+{
+	char r, n, ch, m;
+	string issr, isbname, isid, isauthor, isdate, stname, stid, facname, facid;
+	cout << "****************************************************** " << endl;
+	cout << " Choose an option " << endl;
+	cout << " (1) Student " << endl;
+	cout << " (2) Faculty " << endl;
+	cout << "****************************************************** " << endl;
+	cin >> r;
+
+	switch (r)
+	{
+	case '1':
+		system("cls");
+		cout << "****************************************************** " << endl;
+		cout << " Enter the following ";
+		cout << endl;
+		cout << endl;
+		cout << "                    "; getline(cin, issr);
+		cout << endl;
+		cout << " Enter Name of Book "; getline(cin, isbname);
+		cout << endl;
+		cout << " Book ID: "; getline(cin, isid);
+		cout << endl;
+		cout << " Enter Author of Book "; getline(cin, isauthor);
+		cout << endl;
+		cout << " Enter Name of Student "; getline(cin, stname);
+		cout << endl;
+		cout << " Enter Student ID "; getline(cin, stid);
+		cout << endl;
+		cout << " Enter Date as D/M/Y "; getline(cin, isdate);
+		cout << endl;
+		cout << endl;
+
+		cout << " Record Stored! " << endl;
+		cout << endl;
+
+		bookiss(issr, isbname, isid, isauthor, stname, stid, isdate);
+
+		cout << endl;
+		cout << endl;
+		cout << "****************************************************** " << endl;
+		cout << "Want to Enter another Record ? (Y/N) ";
+		cin >> ch;
+		if (ch == 'y')
+		{
+			system("cls");
+			bookis();
+		}
+		else if (ch == 'n')
+		{
+			cout << " Press m and enter to go back to main menu " << endl;
+			cin >> m;
+			if (m == 'm')
+			{
+				system("cls");
+				menu();
+			}
+			break;
+
+	case '2':
+		system("cls");
+		cout << "****************************************************** " << endl;
+		cout << " Enter the following ";
+		cout << endl;
+		cout << endl;
+		cout << "                    "; getline(cin, issr);
+		cout << endl;
+		cout << " Enter Name of Book "; getline(cin, isbname);
+		cout << endl;
+		cout << " Book ID: "; getline(cin, isid);
+		cout << endl;
+		cout << " Enter Author of Book "; getline(cin, isauthor);
+		cout << endl;
+		cout << " Enter Name of Faculty "; getline(cin, facname);
+		cout << endl;
+		cout << " Enter Faculty ID "; getline(cin, facid);
+		cout << endl;
+		cout << " Enter Date as D/M/Y "; getline(cin, isdate);
+
+		cout << endl;
+		cout << endl;
+
+
+		cout << " Record Stored! " << endl;
+		cout << endl;
+		bookisf(issr, isbname, isid, isauthor, facname, facid, isdate);
+
+		cout << endl;
+		cout << "****************************************************** " << endl;
+		cout << "Want to Enter another Record ? (Y/N) ";
+		cin >> ch;
+		if (ch == 'y')
+		{
+			system("cls");
+			bookis();
+		}
+		else if (ch == 'n')
+		{
+			cout << " Press m and enter to go back to main menu " << endl;
+			cin >> m;
+			if (m == 'm')
+			{
+				system("cls");
+				menu();
+			}
+		}
+		break;
+		}
+		system("cls");
+	}
+}
